@@ -38,6 +38,8 @@ fun EditGradientList(
     ) {
         items(itemsList) { item ->
             EditGradientElement(
+                modifier = Modifier
+                    .padding(8.dp),
                 color = item.color,
                 distance = item.distanceToNextColor,
                 onColorChangeClick = { color ->
@@ -59,7 +61,6 @@ fun EditGradientList(
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .background(themeColors.backSecondary)
                     .clickable { onAddNewElementClick() }
                     .padding(8.dp)
             )

@@ -3,8 +3,10 @@ package com.example.gradienter.data
 import androidx.compose.ui.graphics.Color
 import com.example.gradienter.domain.models.EditGradientItem
 import com.example.gradienter.domain.models.GradientItem
-import java.lang.Float.max
-import java.lang.Float.min
+import kotlin.math.abs
+import kotlin.math.floor
+import kotlin.math.max
+import kotlin.math.min
 
 object GradientBuilder {
     fun build(
@@ -49,11 +51,14 @@ object GradientBuilder {
             return colors
         }
 
-        val redStep = (targetColor.red - startColor.red) / (distance + 1)
-        val greenStep = (targetColor.green - startColor.green) / (distance + 1)
-        val blueStep = (targetColor.blue - startColor.blue) / (distance + 1)
+        val maxDistance = calculateMaxDistance(startColor, targetColor)
+        val resultDistance = min(distance, maxDistance)
 
-        repeat(distance) {
+        val redStep = calculateStep(startColor.red, targetColor.red, resultDistance, maxDistance)
+        val greenStep = calculateStep(startColor.green, targetColor.green, resultDistance, maxDistance)
+        val blueStep = calculateStep(startColor.blue, targetColor.blue, resultDistance, maxDistance)
+
+        repeat(resultDistance) {
             colors.add(
                 Color(
                     red = normalizeColor(colors.last().red + redStep),
@@ -64,6 +69,33 @@ object GradientBuilder {
         }
         return colors
     }
+
+    private fun calculateStep(
+        startColor: Float,
+        targetColor: Float,
+        distance: Int,
+        maxDistance: Int,
+    ): Float {
+        val diff = targetColor - startColor
+        val step = diff / min((distance + 1), maxDistance)
+        return step
+    }
+
+    private fun calculateMaxDistance(startColor: Color, targetColor: Color): Int {
+        val redDiff = targetColor.red - startColor.red
+        val greenDiff = targetColor.green - startColor.green
+        val blueDiff = targetColor.blue - startColor.blue
+
+        val maxDistance = max(
+            abs(redDiff) * 255f,
+            max(
+                abs(greenDiff) * 255f,
+                abs(blueDiff) * 255f,
+            )
+        )
+        return floor(maxDistance).toInt() - 1
+    }
+
 
     private fun normalizeColor(value: Float, minValue: Float = 0f, maxValue: Float = 1f) =
         min(max(value, minValue), maxValue)

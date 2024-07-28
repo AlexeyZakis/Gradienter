@@ -44,19 +44,19 @@ fun ColorPickerRGB(
             colorName = "Red",
             value = red,
             onValueChange = { red = it; onColorSelected(selectedColor) },
-            color = Color.Red
+            color = themeColors.colorRed
         )
         ColorSlider(
             colorName = "Green",
             value = green,
             onValueChange = { green = it; onColorSelected(selectedColor) },
-            color = Color.Green
+            color = themeColors.colorGreen
         )
         ColorSlider(
             colorName = "Blue",
             value = blue,
             onValueChange = { blue = it; onColorSelected(selectedColor) },
-            color = Color.Blue
+            color = themeColors.colorBlue
         )
 
         Spacer(modifier = Modifier.height(16.dp))

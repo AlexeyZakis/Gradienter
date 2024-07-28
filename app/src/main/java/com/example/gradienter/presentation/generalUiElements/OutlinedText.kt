@@ -1,4 +1,4 @@
-package com.example.gradienter.presentation.screens.gradientScreen.components
+package com.example.gradienter.presentation.generalUiElements
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box

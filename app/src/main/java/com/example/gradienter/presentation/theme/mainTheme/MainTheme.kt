@@ -11,7 +11,7 @@ object MainTheme : Theme() {
     override val lightLabelDisable = Color(0x26000000)
 
     override val lightBackPrimary = Color(0xFFF7F6F2)
-    override val lightBackSecondary = Color(0xFFFFFFFF)
+    override val lightBackSecondary = Color(0xFEAAAAA5)
     override val lightBackTertiary = Color(0x26000000)
 
     override val lightRed = Color(0xFFFF3B30)

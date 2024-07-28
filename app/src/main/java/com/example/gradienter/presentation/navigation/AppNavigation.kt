@@ -12,9 +12,10 @@ import com.example.gradienter.presentation.navigation.routes.GradientScreenRoute
 import com.example.gradienter.presentation.navigation.routes.SettingsScreenRoute
 import com.example.gradienter.presentation.screens.editGradientScreen.EditGradientScreen
 import com.example.gradienter.presentation.screens.editGradientScreen.EditGradientScreenViewModel
-import com.example.gradienter.presentation.screens.gradientScreen.GradientScreen
-import com.example.gradienter.presentation.screens.gradientScreen.GradientScreenViewModel
+import com.example.gradienter.presentation.screens.gradientListScreen.GradientListScreen
+import com.example.gradienter.presentation.screens.gradientListScreen.GradientScreenViewModel
 import com.example.gradienter.presentation.screens.settingsScreen.SettingsScreen
+import com.example.gradienter.presentation.screens.settingsScreen.SettingsScreenViewModel
 
 @Composable
 fun AppNavigation() {
@@ -28,7 +29,7 @@ fun AppNavigation() {
         ) {
             val gradientScreenViewModel: GradientScreenViewModel = hiltViewModel()
             val gradientScreenState by gradientScreenViewModel.screenState.collectAsState()
-            GradientScreen(
+            GradientListScreen(
                 screenState = gradientScreenState,
                 screenAction = gradientScreenViewModel::screenAction,
                 navigateToSettings = { navController.navigate(SettingsScreenRoute.route) },
@@ -55,9 +56,11 @@ fun AppNavigation() {
         composable(
             route = SettingsScreenRoute.route,
         ) {
-//            val gradientScreenViewModel: GradientScreenViewModel = hiltViewModel()
-//            val gradientScreenState by gradientScreenViewModel.screenState.collectAsState()
+            val settingsScreenViewModel: SettingsScreenViewModel = hiltViewModel()
+            val settingsScreenState by settingsScreenViewModel.screenState.collectAsState()
             SettingsScreen(
+                screenState = settingsScreenState,
+                screenAction = settingsScreenViewModel::screenAction,
                 navigateBack = {
                     navController.navigate(GradientScreenRoute.route) {
                         popUpTo(GradientScreenRoute.route) {

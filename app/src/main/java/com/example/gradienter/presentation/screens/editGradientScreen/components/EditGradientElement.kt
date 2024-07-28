@@ -12,12 +12,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.gradienter.R
+import com.example.gradienter.presentation.generalUiElements.DeleteBtn
+import com.example.gradienter.presentation.generalUiElements.NumberSelector
 import com.example.gradienter.presentation.theme.mainTheme.MainTheme
 import com.example.todoapp.presentation.themes.AppTheme
 import com.example.todoapp.presentation.themes.themeColors
 
 @Composable
 fun EditGradientElement(
+    modifier: Modifier = Modifier,
     onColorChangeClick: (Color) -> Unit,
     onDistanceChange: (Int) -> Unit,
     onDeleteClick: () -> Unit,
@@ -25,7 +28,7 @@ fun EditGradientElement(
     distance: Int,
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .background(themeColors.backSecondary)
             .height(IntrinsicSize.Min)
     ) {

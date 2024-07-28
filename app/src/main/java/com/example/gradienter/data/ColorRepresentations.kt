@@ -5,12 +5,13 @@ import androidx.compose.ui.graphics.Color
 object ColorRepresentations {
     fun getColorString(color: Color, representation: Representation) =
         when (representation) {
-            Representation.HEX -> hex(color)
+            Representation.HEX8 -> hex8(color)
             Representation.RGBA_INT -> rgbaInt(color)
             Representation.RGBA_FLOAT -> rgbaFloat(color)
+            Representation.NONE -> ""
         }
 
-    private fun hex(color: Color): String {
+    private fun hex8(color: Color): String {
         val alpha = (color.alpha * 255).toInt()
         val red = (color.red * 255).toInt()
         val green = (color.green * 255).toInt()
@@ -35,8 +36,11 @@ object ColorRepresentations {
     }
 
     enum class Representation {
-        HEX,
+        HEX8,
         RGBA_INT,
         RGBA_FLOAT,
+        NONE,
+        ;
+        fun isNone() = this == NONE
     }
 }

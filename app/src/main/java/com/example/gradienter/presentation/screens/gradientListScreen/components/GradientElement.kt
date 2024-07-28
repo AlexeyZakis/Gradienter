@@ -1,4 +1,4 @@
-package com.example.gradienter.presentation.screens.gradientScreen.components
+package com.example.gradienter.presentation.screens.gradientListScreen.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -59,7 +59,7 @@ private fun GradientElementPreview() {
         colorRepresentation = { color ->
             ColorRepresentations.getColorString(
                 color,
-                ColorRepresentations.Representation.HEX
+                ColorRepresentations.Representation.HEX8
             )
         }
     )

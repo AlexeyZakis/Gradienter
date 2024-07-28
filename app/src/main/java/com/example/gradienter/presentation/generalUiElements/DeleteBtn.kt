@@ -1,4 +1,4 @@
-package com.example.gradienter.presentation.screens.editGradientScreen.components
+package com.example.gradienter.presentation.generalUiElements
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete

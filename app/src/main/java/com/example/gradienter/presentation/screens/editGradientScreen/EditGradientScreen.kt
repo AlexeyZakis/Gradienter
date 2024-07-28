@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.gradienter.domain.models.EditGradientItem
 import com.example.gradienter.presentation.screens.editGradientScreen.components.ColorPickerRGB
-import com.example.gradienter.presentation.screens.editGradientScreen.components.ContentDialog
+import com.example.gradienter.presentation.generalUiElements.ContentDialog
 import com.example.gradienter.presentation.screens.editGradientScreen.components.EditGradientList
 import com.example.gradienter.presentation.theme.mainTheme.MainTheme
 import com.example.todoapp.presentation.themes.AppTheme
@@ -37,7 +37,9 @@ fun EditGradientScreen(
             .background(themeColors.backPrimary)
     ) {
         EditGradientList(
-            modifier = Modifier.padding(8.dp),
+            modifier = Modifier
+                .background(themeColors.backSecondary)
+                .padding(8.dp),
             itemsList = screenState.editGradientItems,
             onAddNewElementClick = {
                 screenAction(EditGradientScreenAction.OnAddNewElementClick)

@@ -13,7 +13,7 @@ import dagger.hilt.android.components.ViewModelComponent
 
 @Module
 @InstallIn(ViewModelComponent::class)
-class DomainModule {
+class EditGradientModule {
     @Provides
     fun provideGetEditItemsListUseCase(gradientRepository: GradientRepository) =
         GetEditGradientItemsListUseCase(gradientRepository = gradientRepository)

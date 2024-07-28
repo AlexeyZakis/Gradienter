@@ -1,4 +1,4 @@
-package com.example.gradienter.presentation.screens.gradientScreen.components
+package com.example.gradienter.presentation.screens.gradientListScreen.components
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -48,7 +48,7 @@ fun GradientList(
 @Composable
 private fun GradientListPreview() {
     GradientList(
-        colorRepresentation = ColorRepresentations.Representation.HEX,
+        colorRepresentation = ColorRepresentations.Representation.HEX8,
         onItemClick = {},
         itemsList = GradientBuilder.build(
             listOf(
