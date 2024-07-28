@@ -33,7 +33,6 @@ fun GradientList(
                         colorRepresentation
                     )
                 },
-                fontSize = 20.sp,
                 color = item.color,
                 onClick = { onItemClick(item) }
             )
