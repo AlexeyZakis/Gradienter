@@ -105,6 +105,5 @@ private fun EditGradientScreenPreview() {
             navigateBack = {},
             screenAction = {},
         )
-
     }
 }

@@ -6,11 +6,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
@@ -26,7 +28,6 @@ fun GradientElement(
     color: Color,
     onClick: () -> Unit,
     paddingValues: PaddingValues = PaddingValues(8.dp),
-    fontSize: TextUnit = 20.sp,
 ) {
     val textColor = when (BrightnessCalculator.getBrightness(color)) {
         BrightnessCalculator.Brightness.LIGHT -> Color.Black
@@ -42,7 +43,7 @@ fun GradientElement(
     ) {
         Text(
             text = colorRepresentation(color),
-            fontSize = fontSize,
+            style = MaterialTheme.typography.bodyMedium,
             fontFamily = FontFamily.Monospace,
             color = textColor
         )

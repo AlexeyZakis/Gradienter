@@ -19,6 +19,7 @@ import com.example.todoapp.presentation.themes.themeColors
 
 @Composable
 fun GradientListScreen(
+    isSplitScreen: Boolean,
     screenState: GradientScreenState,
     screenAction: (GradientScreenAction) -> Unit,
     navigateToEditGradient: () -> Unit,
@@ -49,6 +50,7 @@ fun GradientListScreen(
             }
         )
         GradientListBottom(
+            isLandscape = isSplitScreen,
             navigateToSettings = navigateToSettings,
             navigateToEditGradient = navigateToEditGradient,
         )
@@ -57,9 +59,33 @@ fun GradientListScreen(
 
 @Preview
 @Composable
-fun GradientListScreenPreview() {
+private fun SplitScreenGradientListScreenPreview() {
     AppTheme(theme = MainTheme) {
         GradientListScreen(
+            isSplitScreen = true,
+            screenState = GradientScreenState(
+                gradientItems = GradientBuilder.build(
+                    listOf(
+                        EditGradientItem(color = Color.Red, distanceToNextColor = 64),
+                        EditGradientItem(color = Color.Yellow, distanceToNextColor = 64),
+                        EditGradientItem(color = Color.Green, distanceToNextColor = 64),
+                        EditGradientItem(color = Color.Blue, distanceToNextColor = 64),
+                    )
+                )
+            ),
+            screenAction = {},
+            navigateToEditGradient = {},
+            navigateToSettings = {},
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun GradientListScreenPreview() {
+    AppTheme(theme = MainTheme) {
+        GradientListScreen(
+            isSplitScreen = false,
             screenState = GradientScreenState(
                 gradientItems = GradientBuilder.build(
                     listOf(

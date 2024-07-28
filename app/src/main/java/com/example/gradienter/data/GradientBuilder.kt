@@ -54,18 +54,23 @@ object GradientBuilder {
         val maxDistance = calculateMaxDistance(startColor, targetColor)
         val resultDistance = min(distance, maxDistance)
 
-        val redStep = calculateStep(startColor.red, targetColor.red, resultDistance, maxDistance)
-        val greenStep = calculateStep(startColor.green, targetColor.green, resultDistance, maxDistance)
-        val blueStep = calculateStep(startColor.blue, targetColor.blue, resultDistance, maxDistance)
+        val redStep = calculateStep(startColor.red, targetColor.red, resultDistance)
+        val greenStep = calculateStep(startColor.green, targetColor.green, resultDistance)
+        val blueStep = calculateStep(startColor.blue, targetColor.blue, resultDistance)
+
+        var lastRed = startColor.red
+        var lastGreen = startColor.green
+        var lastBlue = startColor.blue
 
         repeat(resultDistance) {
-            colors.add(
-                Color(
-                    red = normalizeColor(colors.last().red + redStep),
-                    green = normalizeColor(colors.last().green + greenStep),
-                    blue = normalizeColor(colors.last().blue + blueStep),
-                )
-            )
+            lastRed = normalizeColor(lastRed + redStep)
+            lastGreen = normalizeColor(lastGreen + greenStep)
+            lastBlue = normalizeColor(lastBlue + blueStep)
+            colors.add(Color(
+                red = lastRed,
+                green = lastGreen,
+                blue = lastBlue,
+            ))
         }
         return colors
     }
@@ -74,10 +79,9 @@ object GradientBuilder {
         startColor: Float,
         targetColor: Float,
         distance: Int,
-        maxDistance: Int,
     ): Float {
         val diff = targetColor - startColor
-        val step = diff / min((distance + 1), maxDistance)
+        val step = diff / (distance + 1)
         return step
     }
 

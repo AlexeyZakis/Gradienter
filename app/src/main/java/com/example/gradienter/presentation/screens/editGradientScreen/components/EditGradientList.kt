@@ -70,7 +70,7 @@ fun EditGradientList(
 
 @Preview
 @Composable
-fun EditGradientListPreview() {
+private fun EditGradientListPreview() {
     AppTheme(theme = MainTheme) {
         EditGradientList(
             onAddNewElementClick = {},

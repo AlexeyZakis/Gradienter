@@ -16,6 +16,7 @@ import com.example.todoapp.presentation.themes.themeColors
 
 @Composable
 fun GradientListBottom(
+    isLandscape: Boolean,
     navigateToEditGradient: () -> Unit,
     navigateToSettings: () -> Unit,
 ) {
@@ -23,19 +24,21 @@ fun GradientListBottom(
         modifier = Modifier
             .wrapContentHeight()
     ) {
-        Button(
-            colors = ButtonDefaults.buttonColors(
-                containerColor = themeColors.backTertiary
-            ),
-            onClick = { navigateToEditGradient() },
-            modifier = Modifier
-                .padding(8.dp)
-                .weight(1f)
-        ) {
-            Text(
-                color = themeColors.labelPrimary,
-                text = stringResource(id = R.string.editGradient)
-            )
+        if (!isLandscape) {
+            Button(
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = themeColors.backTertiary
+                ),
+                onClick = { navigateToEditGradient() },
+                modifier = Modifier
+                    .padding(8.dp)
+                    .weight(1f)
+            ) {
+                Text(
+                    color = themeColors.labelPrimary,
+                    text = stringResource(id = R.string.editGradient)
+                )
+            }
         }
         Button(
             colors = ButtonDefaults.buttonColors(
@@ -56,8 +59,19 @@ fun GradientListBottom(
 
 @Preview
 @Composable
-fun GradientListBottomPreview() {
+private fun LandscapeGradientListBottomPreview() {
     GradientListBottom(
+        isLandscape = true,
+        navigateToEditGradient = {},
+        navigateToSettings = {},
+    )
+}
+
+@Preview
+@Composable
+private fun PortraitGradientListBottomPreview() {
+    GradientListBottom(
+        isLandscape = false,
         navigateToEditGradient = {},
         navigateToSettings = {},
     )

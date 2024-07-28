@@ -32,7 +32,7 @@ object ColorRepresentations {
         val red = color.red
         val green = color.green
         val blue = color.blue
-        return "($red, $green, $blue, $alpha)"
+        return String.format("(%.3f, %.3f, %.3f, %.3f)", red, green, blue, alpha)
     }
 
     enum class Representation {
