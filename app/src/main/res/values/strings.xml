@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Gradienter</string>
+    <string name="increasesValue">Increases</string>
+    <string name="decreasesValue">Decreases</string>
+    <string name="distanceToNextColor">Distance</string>
+    <string name="newGradientElement">New gradient element</string>
+    <string name="editGradient">Edit gradient</string>
+    <string name="settingsScreen">Settings</string>
+    <string name="deleteBtn">Delete</string>
 </resources>
