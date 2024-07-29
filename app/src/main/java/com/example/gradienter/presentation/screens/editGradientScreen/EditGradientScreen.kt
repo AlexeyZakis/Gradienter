@@ -1,5 +1,6 @@
 package com.example.gradienter.presentation.screens.editGradientScreen
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -30,6 +31,10 @@ fun EditGradientScreen(
     var showColorPickerDialog by remember { mutableStateOf(false) }
     var сolorPickerColor by remember { mutableStateOf(Color.Black) }
     var editGradientItemId by remember { mutableStateOf("") }
+
+    BackHandler(enabled = showColorPickerDialog) {
+        showColorPickerDialog = false
+    }
 
     Box(
         modifier = Modifier
