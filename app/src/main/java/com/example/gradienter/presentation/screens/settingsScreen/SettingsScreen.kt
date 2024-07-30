@@ -92,8 +92,13 @@ fun SettingsScreen(
                         colorRepresentation = screenState.colorRepresentation,
                     )
                 }
-                SettingsScreenWrapper {
-                    ApplicationVersion()
+                SettingsScreenWrapper(
+                    innerPadding = PaddingValues(0.dp)
+                ) {
+                    ApplicationVersion(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    )
                 }
             }
         }

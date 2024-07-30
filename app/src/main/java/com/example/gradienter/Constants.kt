@@ -4,6 +4,8 @@ import androidx.compose.ui.graphics.Color
 import com.example.gradienter.data.ColorRepresentations
 
 object Constants {
+    const val PROJECT_REPOSITORY = "https://github.com/Zakis0/Gradienter/releases/latest"
+
     const val DEFAULT_GRADIENT_ELEMENT_HEIGHT = 18
     val DEFAULT_COLOR_REPRESENTATION = ColorRepresentations.Representation.HEX8
 
