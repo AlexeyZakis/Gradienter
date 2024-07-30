@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.gradienter.data.ColorRepresentations
 import com.example.gradienter.presentation.generalUiElements.BottomSheet
+import com.example.gradienter.presentation.screens.settingsScreen.components.ApplicationVersion
 import com.example.gradienter.presentation.screens.settingsScreen.components.GradientElementSizeSelector
 import com.example.gradienter.presentation.screens.settingsScreen.components.GradientListExample
 import com.example.gradienter.presentation.screens.settingsScreen.components.SettingsColorRepresentationSelector
@@ -90,6 +91,9 @@ fun SettingsScreen(
                         gradientElementHeightDp = screenState.gradientElementSize,
                         colorRepresentation = screenState.colorRepresentation,
                     )
+                }
+                SettingsScreenWrapper {
+                    ApplicationVersion()
                 }
             }
         }

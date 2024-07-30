@@ -13,4 +13,5 @@
     <string name="colorRepresentationRgbaFloat">RGBA Float</string>
     <string name="currentColorRepresentation">Color representation</string>
     <string name="gradientElementSize">Gradient element size</string>
+    <string name="applicationVersion">Application version</string>
 </resources>

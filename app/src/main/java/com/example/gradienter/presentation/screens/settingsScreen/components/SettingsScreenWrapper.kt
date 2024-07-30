@@ -3,6 +3,7 @@ package com.example.gradienter.presentation.screens.settingsScreen.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -24,6 +25,7 @@ fun SettingsScreenWrapper(
 ) {
     Box(
         modifier = modifier
+            .fillMaxWidth()
             .padding(outerPadding)
             .background(background)
             .padding(innerPadding)

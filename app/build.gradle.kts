@@ -6,6 +6,8 @@ plugins {
     alias(libs.plugins.google.dagger.hilt.android)
 }
 
+val version = "1.2.0"
+
 android {
     namespace = "com.example.gradienter"
     compileSdk = 34
@@ -14,13 +16,15 @@ android {
         applicationId = "com.example.gradienter"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 3
+        versionName = version
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField("String", "VERSION_NAME", "\"$version\"")
     }
 
     buildTypes {
@@ -41,6 +45,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
