@@ -15,4 +15,7 @@ object Constants {
     const val MIN_GRADIENT_ELEMENT_HEIGHT = 1
     const val MAX_GRADIENT_ELEMENT_HEIGHT = 100
     const val GRADIENT_ELEMENT_PADDING_PERCENTAGE_OF_HEIGHT = 0.25f
+
+    const val GITHUB_OWNER = "Zakis0"
+    const val GITHUB_REPOSITORY = "Gradienter"
 }

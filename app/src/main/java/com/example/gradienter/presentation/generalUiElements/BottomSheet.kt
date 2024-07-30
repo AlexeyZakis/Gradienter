@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Button
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ModalBottomSheetLayout
@@ -54,8 +56,10 @@ fun <T> BottomSheet(
         sheetState = sheetState,
         content = content,
         sheetContent = {
+            val scrollState = rememberScrollState()
             Column(
                 modifier = Modifier
+                    .verticalScroll(scrollState)
                     .background(themeColors.backPrimary)
                     .padding(16.dp)
             ) {
@@ -91,6 +95,68 @@ fun <T> BottomSheet(
 @Preview
 @Composable
 private fun BottomSheetPreview() {
+    AppTheme(theme = MainTheme) {
+        val scope = rememberCoroutineScope()
+        val sheetState: ModalBottomSheetState =
+            rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
+
+        val color = Color(0xFF8044FF)
+
+        var text by remember {
+            mutableStateOf(
+                "${ColorRepresentations.Representation.HEX6.name}\n" +
+                        ColorRepresentations.getColorString(
+                            color = color,
+                            representation = ColorRepresentations.Representation.HEX6
+                        )
+            )
+        }
+        var selectedRepresentations by remember { mutableStateOf(ColorRepresentations.Representation.HEX6) }
+
+        BottomSheet(
+            sheetState = sheetState,
+            values = ColorRepresentations.Representation.entries.toTypedArray(),
+            valueToStringResId = { representation -> representation.toRId() },
+            selected = selectedRepresentations,
+            onSelect = { representation ->
+                run {
+                    selectedRepresentations = representation
+                    text = "${representation.name}\n" +
+                            ColorRepresentations.getColorString(
+                                color = color,
+                                representation = representation
+                            )
+                }
+            },
+            valueColors = mapOf(
+                ColorRepresentations.Representation.HEX6 to themeColors.colorRed
+            )
+        ) {
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                Button(
+                    onClick = {
+                        scope.launch {
+                            sheetState.show()
+                        }
+                    }
+                ) {
+                    Text(
+                        textAlign = TextAlign.Center,
+                        text = text
+                    )
+                }
+            }
+        }
+    }
+}
+
+
+@OptIn(ExperimentalMaterialApi::class)
+@Preview(
+    heightDp = 200
+)
+@Composable
+private fun SmallHeightBottomSheetPreview() {
     AppTheme(theme = MainTheme) {
         val scope = rememberCoroutineScope()
         val sheetState: ModalBottomSheetState =

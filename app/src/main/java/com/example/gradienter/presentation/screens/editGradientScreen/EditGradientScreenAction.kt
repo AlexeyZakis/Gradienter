@@ -18,4 +18,10 @@ sealed class EditGradientScreenAction {
     data class OnDeleteElement(
         val editGradientItem: EditGradientItem,
     ) : EditGradientScreenAction()
+    data class OnDownArrowClick(
+        val editGradientItem: EditGradientItem,
+    ) : EditGradientScreenAction()
+    data class OnUpArrowClick(
+        val editGradientItem: EditGradientItem,
+    ) : EditGradientScreenAction()
 }

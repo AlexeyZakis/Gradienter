@@ -1,11 +1,11 @@
-package com.example.gradienter.presentation
+package com.example.gradienter.presentation.utils
 
 import android.content.Context
 import com.example.gradienter.domain.repository.SettingsRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
-class SettingsManager @Inject constructor(
+class SettingsSaveManager @Inject constructor(
     @ApplicationContext private val context: Context,
     private val settingsRepository: SettingsRepository
 ) {

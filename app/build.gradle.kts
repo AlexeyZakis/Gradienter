@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.google.dagger.hilt.android)
 }
 
-val version = "1.2.0"
+val version = "v1.1.0"
 
 android {
     namespace = "com.example.gradienter"
@@ -87,6 +87,8 @@ dependencies {
     // Hilt
     kapt(libs.hilt.android.compiler)
     implementation(libs.bundles.hilt)
+
+    implementation(libs.okhttp)
 }
 
 kapt {

@@ -86,7 +86,7 @@ fun NumberSelector(
                 }
             },
             modifier = Modifier
-                .width(100.dp)
+                .width(60.dp)
                 .background(color = themeColors.backTertiary)
         ) { textField ->
             Box(modifier = Modifier.padding(16.dp)) {

@@ -1,8 +1,5 @@
 # Gradienter
 
-<h3 align="center">Gradient</h3>
-<img src="https://github.com/Zakis0/Gradienter/blob/main/img/gradient.jpg" alt="Gradient example">
-
 <h3 align="center">Multiple color gradient</h3>
 <img src="https://github.com/Zakis0/Gradienter/blob/main/img/multipleColorGradient.jpg" alt="Multiple color gradient example">
 

@@ -17,11 +17,14 @@ import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.gradienter.data.ColorRepresentations
 import com.example.gradienter.presentation.generalUiElements.BottomSheet
 import com.example.gradienter.presentation.screens.settingsScreen.components.ApplicationVersion
+import com.example.gradienter.presentation.screens.settingsScreen.components.CheckNewVersion
+import com.example.gradienter.presentation.screens.settingsScreen.components.DownloadNewVersion
 import com.example.gradienter.presentation.screens.settingsScreen.components.GradientElementSizeSelector
 import com.example.gradienter.presentation.screens.settingsScreen.components.GradientListExample
 import com.example.gradienter.presentation.screens.settingsScreen.components.SettingsColorRepresentationSelector
@@ -39,6 +42,8 @@ fun SettingsScreen(
     screenAction: (SettingsScreenAction) -> Unit,
     navigateBack: () -> Unit,
 ) {
+    val context = LocalContext.current
+
     val scope = rememberCoroutineScope()
     val sheetState: ModalBottomSheetState =
         rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
@@ -96,9 +101,38 @@ fun SettingsScreen(
                     innerPadding = PaddingValues(0.dp)
                 ) {
                     ApplicationVersion(
+                        onClick = {
+                            screenAction(SettingsScreenAction.OnVersionClick(context))
+                        },
                         modifier = Modifier
                             .fillMaxWidth()
                     )
+                }
+                SettingsScreenWrapper(
+                    innerPadding = PaddingValues(0.dp)
+                ) {
+                    CheckNewVersion(
+                        onClick = {
+                            screenAction(SettingsScreenAction.OnCheckNewVersionClick)
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    )
+                }
+                if (screenState.hasNewVersion) {
+                    SettingsScreenWrapper(
+                        innerPadding = PaddingValues(0.dp)
+                    ) {
+                        DownloadNewVersion(
+                            isDownloading = screenState.isDownloading,
+                            versionName = screenState.newVersionName,
+                            onClick = {
+                                screenAction(SettingsScreenAction.OnDownloadNewVersionClick)
+                            },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                        )
+                    }
                 }
             }
         }

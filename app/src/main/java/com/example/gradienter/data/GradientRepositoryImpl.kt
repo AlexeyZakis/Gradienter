@@ -36,4 +36,27 @@ class GradientRepositoryImpl : GradientRepository {
         }
         _editGradientItems.value = newItems
     }
+
+    override fun moveElementUp(editGradientItem: EditGradientItem) {
+        val newItems = _editGradientItems.value.toMutableList().apply {
+            val index = this.indexOfFirst { it.id == editGradientItem.id }
+
+            if (index > 0) {
+                this[index] = this[index - 1]
+                    .also { this[index - 1] = this[index] }
+            }
+        }
+        _editGradientItems.value = newItems
+    }
+
+    override fun moveElementDown(editGradientItem: EditGradientItem) {
+        val newItems = _editGradientItems.value.toMutableList().apply {
+            val index = this.indexOfFirst { it.id == editGradientItem.id }
+
+            if (index in 0..<this.size - 1) {
+                this[index] = this[index + 1].also { this[index + 1] = this[index] }
+            }
+        }
+        _editGradientItems.value = newItems
+    }
 }

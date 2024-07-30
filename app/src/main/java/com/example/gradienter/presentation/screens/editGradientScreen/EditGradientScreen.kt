@@ -64,6 +64,20 @@ fun EditGradientScreen(
                     )
                 )
             },
+            onUpArrowClick = { editGradientItem ->
+                screenAction(
+                    EditGradientScreenAction.OnUpArrowClick(
+                        editGradientItem = editGradientItem,
+                    )
+                )
+            },
+            onDownArrowClick = { editGradientItem ->
+                screenAction(
+                    EditGradientScreenAction.OnDownArrowClick(
+                        editGradientItem = editGradientItem,
+                    )
+                )
+            },
             onDeleteItem = { editGradientItem ->
                 screenAction(
                     EditGradientScreenAction.OnDeleteElement(

@@ -8,6 +8,8 @@ import com.example.gradienter.domain.usecase.gradientRepository.AddEditGradientI
 import com.example.gradienter.domain.usecase.gradientRepository.EditEditGradientItemUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.GetEditGradientItemUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.GetEditGradientItemsListUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.MoveElementDownUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.MoveElementUpUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.RemoveEditGradientItemUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,6 +24,8 @@ class EditGradientScreenViewModel @Inject constructor(
     private val addEditGradientItemUseCase: AddEditGradientItemUseCase,
     private val removeEditGradientItemUseCase: RemoveEditGradientItemUseCase,
     private val editEditGradientItemUseCase: EditEditGradientItemUseCase,
+    private val moveElementUpUseCase: MoveElementUpUseCase,
+    private val moveElementDownUseCase: MoveElementDownUseCase,
 ) : ViewModel() {
     private val _screenState = MutableStateFlow(EditGradientScreenState())
     val screenState = _screenState.asStateFlow()
@@ -55,6 +59,16 @@ class EditGradientScreenViewModel @Inject constructor(
 
             is EditGradientScreenAction.OnDeleteElement ->
                 deleteEditGradientItem(
+                    editGradientItem = action.editGradientItem,
+                )
+
+            is EditGradientScreenAction.OnDownArrowClick ->
+                moveElementDown(
+                    editGradientItem = action.editGradientItem,
+                )
+
+            is EditGradientScreenAction.OnUpArrowClick ->
+                moveElementUp(
                     editGradientItem = action.editGradientItem,
                 )
         }
@@ -94,5 +108,13 @@ class EditGradientScreenViewModel @Inject constructor(
 
     private fun deleteEditGradientItem(editGradientItem: EditGradientItem) {
         removeEditGradientItemUseCase(editGradientItem = editGradientItem)
+    }
+
+    private fun moveElementUp(editGradientItem: EditGradientItem) {
+        moveElementUpUseCase(editGradientItem)
+    }
+
+    private fun moveElementDown(editGradientItem: EditGradientItem) {
+        moveElementDownUseCase(editGradientItem)
     }
 }

@@ -18,6 +18,8 @@ import com.example.gradienter.domain.usecase.gradientRepository.EditEditGradient
 import com.example.gradienter.domain.usecase.settingsRepository.GetColorRepresentationUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.GetEditGradientItemUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.GetEditGradientItemsListUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.MoveElementDownUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.MoveElementUpUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.RemoveEditGradientItemUseCase
 import com.example.gradienter.domain.usecase.settingsRepository.GetGradientElementSizeUseCase
 import com.example.gradienter.presentation.navigation.routes.SettingsScreenRoute
@@ -106,6 +108,12 @@ private fun LandscapeGradientListAndEditScreenPreview() {
                     gradientRepository = GradientRepositoryImpl()
                 ),
                 editEditGradientItemUseCase = EditEditGradientItemUseCase(
+                    gradientRepository = GradientRepositoryImpl()
+                ),
+                moveElementUpUseCase = MoveElementUpUseCase(
+                    gradientRepository = GradientRepositoryImpl()
+                ),
+                moveElementDownUseCase = MoveElementDownUseCase(
                     gradientRepository = GradientRepositoryImpl()
                 ),
             ),

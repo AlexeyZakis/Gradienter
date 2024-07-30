@@ -5,6 +5,8 @@ import com.example.gradienter.domain.usecase.gradientRepository.AddEditGradientI
 import com.example.gradienter.domain.usecase.gradientRepository.EditEditGradientItemUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.GetEditGradientItemUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.GetEditGradientItemsListUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.MoveElementDownUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.MoveElementUpUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.RemoveEditGradientItemUseCase
 import dagger.Module
 import dagger.Provides
@@ -33,4 +35,12 @@ class EditGradientModule {
     @Provides
     fun provideRemoveEditGradientItemUseCase(gradientRepository: GradientRepository) =
         RemoveEditGradientItemUseCase(gradientRepository = gradientRepository)
+
+    @Provides
+    fun provideMoveElementUpUseCase(gradientRepository: GradientRepository) =
+        MoveElementUpUseCase(gradientRepository = gradientRepository)
+
+    @Provides
+    fun provideMoveElementDownUseCase(gradientRepository: GradientRepository) =
+        MoveElementDownUseCase(gradientRepository = gradientRepository)
 }

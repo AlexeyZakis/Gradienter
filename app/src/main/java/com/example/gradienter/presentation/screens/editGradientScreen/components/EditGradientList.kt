@@ -30,6 +30,8 @@ fun EditGradientList(
     onColorChangeClick: (String, Color) -> Unit,
     onDistanceChange: (String, Int) -> Unit,
     onDeleteItem: (EditGradientItem) -> Unit,
+    onUpArrowClick: (EditGradientItem) -> Unit,
+    onDownArrowClick: (EditGradientItem) -> Unit,
 ) {
     val lazyListState = rememberLazyListState()
     LazyColumn(
@@ -50,7 +52,15 @@ fun EditGradientList(
                 },
                 onDeleteClick = {
                     onDeleteItem(item)
-                }
+                },
+                onUpArrowClick = {
+                    onUpArrowClick(item)
+                },
+                onDownArrowClick = {
+                    onDownArrowClick(item)
+                },
+                upArrowEnabled = item != itemsList.first(),
+                downArrowEnabled = item != itemsList.last(),
             )
         }
         item {
@@ -77,6 +87,8 @@ private fun EditGradientListPreview() {
             onColorChangeClick = { _, _ -> },
             onDistanceChange = { _, _ -> },
             onDeleteItem = {},
+            onUpArrowClick = {},
+            onDownArrowClick = {},
             itemsList = listOf(
                 EditGradientItem(color = Color.Red, distanceToNextColor = 64),
                 EditGradientItem(color = Color.Yellow, distanceToNextColor = 64),

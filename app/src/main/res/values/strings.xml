@@ -2,6 +2,8 @@
     <string name="app_name">Gradienter</string>
     <string name="increasesValue">Increases</string>
     <string name="decreasesValue">Decreases</string>
+    <string name="downElement">Down element</string>
+    <string name="upElement">Up element</string>
     <string name="distanceToNextColor">Distance</string>
     <string name="newGradientElement">New gradient element</string>
     <string name="editGradient">Edit gradient</string>
@@ -15,4 +17,12 @@
     <string name="currentColorRepresentation">Color representation</string>
     <string name="gradientElementSize">Gradient element size</string>
     <string name="applicationVersion">Application version</string>
+    <string name="downloading">Downloading...</string>
+    <string name="downloadNewVersion">Download new version</string>
+    <string name="checkNewVersion">Check new version</string>
+    <string name="downloadComplete">Download complete</string>
+    <string name="downloadFailed">Download failed</string>
+    <string name="noNewVersionUrlFound">No new version URL found</string>
+    <string name="noNewVersionAvailable">No new version available</string>
+    <string name="failedToFetchLatestReleaseInfo">Failed to fetch latest release info</string>
 </resources>

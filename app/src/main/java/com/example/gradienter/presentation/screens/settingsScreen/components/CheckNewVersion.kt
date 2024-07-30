@@ -9,20 +9,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.gradienter.BuildConfig
 import com.example.gradienter.R
-import com.example.gradienter.presentation.theme.mainTheme.MainTheme
-import com.example.todoapp.presentation.themes.AppTheme
 import com.example.todoapp.presentation.themes.themeColors
 
 @Composable
-fun ApplicationVersion(
+fun CheckNewVersion(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
 ) {
-    val label = stringResource(id = R.string.applicationVersion)
-    val version = BuildConfig.VERSION_NAME
-
     Box(
         contentAlignment = androidx.compose.ui.Alignment.Center,
         modifier = modifier
@@ -30,18 +24,16 @@ fun ApplicationVersion(
             .padding(8.dp)
     ) {
         Text(
-            text = "$label: $version",
             color = themeColors.labelPrimary,
+            text = stringResource(id = R.string.checkNewVersion),
         )
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
-private fun ApplicationVersionPreview() {
-    AppTheme(theme = MainTheme) {
-        ApplicationVersion(
-            onClick = {},
-        )
-    }
+private fun CheckNewVersionPreview() {
+    CheckNewVersion(
+        onClick = {},
+    )
 }

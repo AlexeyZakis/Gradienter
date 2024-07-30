@@ -10,4 +10,6 @@ interface GradientRepository {
     fun addEditGradientItem(editGradientItem: EditGradientItem)
     fun removeEditGradientItem(editGradientItem: EditGradientItem)
     fun editEditGradientItem(editGradientItem: EditGradientItem)
+    fun moveElementUp(editGradientItem: EditGradientItem)
+    fun moveElementDown(editGradientItem: EditGradientItem)
 }
