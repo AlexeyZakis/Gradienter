@@ -6,7 +6,7 @@ plugins {
     alias(libs.plugins.google.dagger.hilt.android)
 }
 
-val version = "v1.1.0"
+val version = "v1.3.0"
 
 android {
     namespace = "com.example.gradienter"
@@ -16,7 +16,7 @@ android {
         applicationId = "com.example.gradienter"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
+        versionCode = 4
         versionName = version
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
