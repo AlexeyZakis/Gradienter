@@ -100,14 +100,14 @@ private fun BottomSheetPreview() {
 
         var text by remember {
             mutableStateOf(
-                "${ColorRepresentations.Representation.HEX8.name}\n" +
+                "${ColorRepresentations.Representation.HEX6.name}\n" +
                         ColorRepresentations.getColorString(
                             color = color,
-                            representation = ColorRepresentations.Representation.HEX8
+                            representation = ColorRepresentations.Representation.HEX6
                         )
             )
         }
-        var selectedRepresentations by remember { mutableStateOf(ColorRepresentations.Representation.HEX8) }
+        var selectedRepresentations by remember { mutableStateOf(ColorRepresentations.Representation.HEX6) }
 
         BottomSheet(
             sheetState = sheetState,
@@ -125,7 +125,7 @@ private fun BottomSheetPreview() {
                 }
             },
             valueColors = mapOf(
-                ColorRepresentations.Representation.HEX8 to themeColors.colorRed
+                ColorRepresentations.Representation.HEX6 to themeColors.colorRed
             )
         ) {
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {

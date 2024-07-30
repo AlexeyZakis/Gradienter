@@ -42,7 +42,7 @@ fun SettingsColorRepresentationSelector(
 private fun SettingsColorRepresentationSelectorPreview() {
     AppTheme(theme = MainTheme) {
         SettingsColorRepresentationSelector(
-            colorRepresentation = ColorRepresentations.Representation.HEX8,
+            colorRepresentation = ColorRepresentations.Representation.HEX6,
             onClick = {},
         )
     }

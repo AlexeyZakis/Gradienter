@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.asStateFlow
 
 class SettingsRepositoryImpl : SettingsRepository {
     private val _colorRepresentation: MutableStateFlow<ColorRepresentations.Representation> =
-        MutableStateFlow(ColorRepresentations.Representation.HEX8)
+        MutableStateFlow(ColorRepresentations.Representation.HEX6)
     override val colorRepresentation = _colorRepresentation.asStateFlow()
 
     private val _gradientElementSize: MutableStateFlow<Int> =
@@ -28,7 +28,7 @@ class SettingsRepositoryImpl : SettingsRepository {
         mapOf(
             Keys.COLOR_REPRESENTATION_KEY to SettingsElement(
                 value = _colorRepresentation.value,
-                defaultValue = ColorRepresentations.Representation.HEX8
+                defaultValue = ColorRepresentations.Representation.HEX6
             ),
             Keys.GRADIENT_ELEMENT_SIZE_KEY to SettingsElement(
                 value = _gradientElementSize.value,

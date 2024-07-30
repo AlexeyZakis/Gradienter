@@ -8,6 +8,7 @@
     <string name="settingsScreen">Settings</string>
     <string name="deleteBtn">Delete</string>
     <string name="colorRepresentationNone">None</string>
+    <string name="colorRepresentationHex6">HEX6</string>
     <string name="colorRepresentationHex8">HEX8</string>
     <string name="colorRepresentationRgbaInt">RGBA Int</string>
     <string name="colorRepresentationRgbaFloat">RGBA Float</string>

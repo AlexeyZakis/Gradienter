@@ -53,7 +53,7 @@ fun GradientList(
 private fun GradientListPreview() {
     AppTheme(theme = MainTheme) {
         GradientList(
-            colorRepresentation = ColorRepresentations.Representation.HEX8,
+            colorRepresentation = ColorRepresentations.Representation.HEX6,
             onItemClick = {},
             gradientElementHeightDp = 30,
             itemsList = GradientBuilder.build(

@@ -70,7 +70,7 @@ private fun GradientElementPreview() {
             colorRepresentation = { color ->
                 ColorRepresentations.getColorString(
                     color,
-                    ColorRepresentations.Representation.HEX8
+                    ColorRepresentations.Representation.HEX6
                 )
             }
         )

@@ -40,6 +40,6 @@ fun GradientListExample(
 private fun GradientListExamplePreview() {
     GradientListExample(
         gradientElementHeightDp = 18,
-        colorRepresentation = ColorRepresentations.Representation.HEX8,
+        colorRepresentation = ColorRepresentations.Representation.HEX6,
     )
 }
