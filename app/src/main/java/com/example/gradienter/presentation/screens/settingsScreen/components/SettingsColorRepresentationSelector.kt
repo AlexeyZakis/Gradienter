@@ -25,9 +25,8 @@ fun SettingsColorRepresentationSelector(
 ) {
     Box(
         modifier = modifier
-            .background(themeColors.backSecondary)
             .clickable { onClick() }
-            .padding(8.dp)
+            .padding(16.dp)
     ) {
         Text(
             color = themeColors.labelPrimary,

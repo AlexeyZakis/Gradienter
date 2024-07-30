@@ -1,7 +1,7 @@
 package com.example.gradienter.domain.models
 
 import androidx.compose.ui.graphics.Color
-import com.example.gradienter.domain.Constants
+import com.example.gradienter.Constants
 import java.util.UUID
 
 data class EditGradientItem(

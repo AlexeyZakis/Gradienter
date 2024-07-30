@@ -3,8 +3,13 @@ package com.example.gradienter.presentation.screens.settingsScreen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ModalBottomSheetState
 import androidx.compose.material.ModalBottomSheetValue
@@ -16,7 +21,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.gradienter.data.ColorRepresentations
 import com.example.gradienter.presentation.generalUiElements.BottomSheet
+import com.example.gradienter.presentation.screens.settingsScreen.components.GradientElementSizeSelector
+import com.example.gradienter.presentation.screens.settingsScreen.components.GradientListExample
 import com.example.gradienter.presentation.screens.settingsScreen.components.SettingsColorRepresentationSelector
+import com.example.gradienter.presentation.screens.settingsScreen.components.SettingsScreenWrapper
 import com.example.gradienter.presentation.theme.mainTheme.MainTheme
 import com.example.gradienter.presentation.utils.extensions.toRId
 import com.example.todoapp.presentation.themes.AppTheme
@@ -34,8 +42,11 @@ fun SettingsScreen(
     val sheetState: ModalBottomSheetState =
         rememberModalBottomSheetState(initialValue = ModalBottomSheetValue.Hidden)
 
+    val scrollState = rememberScrollState()
+
     Box(
         modifier = Modifier
+            .fillMaxSize()
             .background(themeColors.backPrimary)
     ) {
         BottomSheet(
@@ -47,18 +58,39 @@ fun SettingsScreen(
                 screenAction(SettingsScreenAction.OnColorRepresentationChange(representation))
             }
         ) {
-            Column {
-                SettingsColorRepresentationSelector(
-                    colorRepresentation = screenState.colorRepresentation,
-                    onClick = {
-                        scope.launch {
-                            sheetState.show()
+            Column(
+                modifier = Modifier
+                    .fillMaxHeight()
+                    .verticalScroll(scrollState)
+            ) {
+                SettingsScreenWrapper(
+                    innerPadding = PaddingValues(0.dp)
+                ) {
+                    SettingsColorRepresentationSelector(
+                        colorRepresentation = screenState.colorRepresentation,
+                        onClick = {
+                            scope.launch {
+                                sheetState.show()
+                            }
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    )
+                }
+                SettingsScreenWrapper {
+                    GradientElementSizeSelector(
+                        initValue = screenState.gradientElementSize,
+                        onValueChange = { size ->
+                            screenAction(SettingsScreenAction.OnGradientElementSizeChange(size))
                         }
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
-                )
+                    )
+                }
+                SettingsScreenWrapper {
+                    GradientListExample(
+                        gradientElementHeightDp = screenState.gradientElementSize,
+                        colorRepresentation = screenState.colorRepresentation,
+                    )
+                }
             }
         }
     }

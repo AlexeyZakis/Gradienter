@@ -1,11 +1,11 @@
 package com.example.gradienter.presentation.di
 
 import com.example.gradienter.domain.repository.GradientRepository
-import com.example.gradienter.domain.usecase.AddEditGradientItemUseCase
-import com.example.gradienter.domain.usecase.EditEditGradientItemUseCase
-import com.example.gradienter.domain.usecase.GetEditGradientItemUseCase
-import com.example.gradienter.domain.usecase.GetEditGradientItemsListUseCase
-import com.example.gradienter.domain.usecase.RemoveEditGradientItemUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.AddEditGradientItemUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.EditEditGradientItemUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.GetEditGradientItemUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.GetEditGradientItemsListUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.RemoveEditGradientItemUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

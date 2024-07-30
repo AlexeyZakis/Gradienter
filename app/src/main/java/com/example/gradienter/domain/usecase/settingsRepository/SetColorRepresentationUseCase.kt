@@ -1,4 +1,4 @@
-package com.example.gradienter.domain.usecase
+package com.example.gradienter.domain.usecase.settingsRepository
 
 import com.example.gradienter.data.ColorRepresentations
 import com.example.gradienter.domain.repository.SettingsRepository

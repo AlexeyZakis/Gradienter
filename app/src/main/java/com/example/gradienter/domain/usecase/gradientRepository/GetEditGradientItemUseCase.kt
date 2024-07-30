@@ -1,4 +1,4 @@
-package com.example.gradienter.domain.usecase
+package com.example.gradienter.domain.usecase.gradientRepository
 
 import com.example.gradienter.domain.repository.GradientRepository
 

@@ -13,12 +13,13 @@ import com.example.gradienter.data.GradientBuilder
 import com.example.gradienter.data.GradientRepositoryImpl
 import com.example.gradienter.data.SettingsRepositoryImpl
 import com.example.gradienter.domain.models.EditGradientItem
-import com.example.gradienter.domain.usecase.AddEditGradientItemUseCase
-import com.example.gradienter.domain.usecase.EditEditGradientItemUseCase
-import com.example.gradienter.domain.usecase.GetColorRepresentationUseCase
-import com.example.gradienter.domain.usecase.GetEditGradientItemUseCase
-import com.example.gradienter.domain.usecase.GetEditGradientItemsListUseCase
-import com.example.gradienter.domain.usecase.RemoveEditGradientItemUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.AddEditGradientItemUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.EditEditGradientItemUseCase
+import com.example.gradienter.domain.usecase.settingsRepository.GetColorRepresentationUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.GetEditGradientItemUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.GetEditGradientItemsListUseCase
+import com.example.gradienter.domain.usecase.gradientRepository.RemoveEditGradientItemUseCase
+import com.example.gradienter.domain.usecase.settingsRepository.GetGradientElementSizeUseCase
 import com.example.gradienter.presentation.navigation.routes.SettingsScreenRoute
 import com.example.gradienter.presentation.screens.editGradientScreen.EditGradientScreen
 import com.example.gradienter.presentation.screens.editGradientScreen.EditGradientScreenState
@@ -85,6 +86,9 @@ private fun LandscapeGradientListAndEditScreenPreview() {
                     gradientRepository = GradientRepositoryImpl()
                 ),
                 getColorRepresentationUseCase = GetColorRepresentationUseCase(
+                    settingsRepository = SettingsRepositoryImpl()
+                ),
+                getGradientElementSizeUseCase = GetGradientElementSizeUseCase(
                     settingsRepository = SettingsRepositoryImpl()
                 )
             ),

@@ -8,6 +8,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.gradienter.data.ColorRepresentations
 import com.example.gradienter.data.GradientBuilder
 import com.example.gradienter.domain.models.EditGradientItem
@@ -35,6 +36,7 @@ fun GradientListScreen(
             modifier = Modifier.weight(1f),
             colorRepresentation = screenState.colorRepresentation,
             itemsList = screenState.gradientItems,
+            gradientElementHeightDp = screenState.gradientElementSize,
             onItemClick = { item ->
                 if (screenState.colorRepresentation.isNone()) {
                     return@GradientList
@@ -64,6 +66,7 @@ private fun SplitScreenGradientListScreenPreview() {
         GradientListScreen(
             isSplitScreen = true,
             screenState = GradientScreenState(
+                gradientElementSize = 10,
                 gradientItems = GradientBuilder.build(
                     listOf(
                         EditGradientItem(color = Color.Red, distanceToNextColor = 64),
@@ -87,6 +90,7 @@ private fun GradientListScreenPreview() {
         GradientListScreen(
             isSplitScreen = false,
             screenState = GradientScreenState(
+                gradientElementSize = 10,
                 gradientItems = GradientBuilder.build(
                     listOf(
                         EditGradientItem(color = Color.Red, distanceToNextColor = 64),

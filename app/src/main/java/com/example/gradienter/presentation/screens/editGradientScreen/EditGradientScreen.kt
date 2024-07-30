@@ -80,7 +80,7 @@ fun EditGradientScreen(
             ) {
                 ColorPickerRGB(
                     color = сolorPickerColor,
-                    onColorSelected = { color ->
+                    onColorChange = { color ->
                         screenAction(
                             EditGradientScreenAction.OnChangeElementColor(
                                 editGradientItemId = editGradientItemId,

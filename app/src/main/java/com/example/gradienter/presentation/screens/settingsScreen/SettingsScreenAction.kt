@@ -6,4 +6,7 @@ sealed class SettingsScreenAction {
     data class OnColorRepresentationChange(
         val colorRepresentation: ColorRepresentations.Representation
     ) : SettingsScreenAction()
+    data class OnGradientElementSizeChange(
+        val gradientElementSize: Int
+    ) : SettingsScreenAction()
 }

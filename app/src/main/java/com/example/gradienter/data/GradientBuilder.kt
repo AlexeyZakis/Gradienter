@@ -63,14 +63,16 @@ object GradientBuilder {
         var lastBlue = startColor.blue
 
         repeat(resultDistance) {
-            lastRed = normalizeColor(lastRed + redStep)
-            lastGreen = normalizeColor(lastGreen + greenStep)
-            lastBlue = normalizeColor(lastBlue + blueStep)
-            colors.add(Color(
-                red = lastRed,
-                green = lastGreen,
-                blue = lastBlue,
-            ))
+            lastRed = normalizeValue(lastRed + redStep)
+            lastGreen = normalizeValue(lastGreen + greenStep)
+            lastBlue = normalizeValue(lastBlue + blueStep)
+            colors.add(
+                Color(
+                    red = lastRed,
+                    green = lastGreen,
+                    blue = lastBlue,
+                )
+            )
         }
         return colors
     }
@@ -100,7 +102,6 @@ object GradientBuilder {
         return floor(maxDistance).toInt() - 1
     }
 
-
-    private fun normalizeColor(value: Float, minValue: Float = 0f, maxValue: Float = 1f) =
+    private fun normalizeValue(value: Float, minValue: Float = 0f, maxValue: Float = 1f) =
         min(max(value, minValue), maxValue)
 }
