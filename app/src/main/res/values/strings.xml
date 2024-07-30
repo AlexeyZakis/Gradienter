@@ -17,9 +17,10 @@
     <string name="currentColorRepresentation">Color representation</string>
     <string name="gradientElementSize">Gradient element size</string>
     <string name="applicationVersion">Application version</string>
-    <string name="downloading">Downloading...</string>
-    <string name="downloadNewVersion">Download new version</string>
+    <string name="downloading">Downloading…</string>
+    <string name="downloadLatestVersion">Download latest version</string>
     <string name="checkNewVersion">Check new version</string>
+    <string name="latestVersionInfo">Latest version info</string>
     <string name="downloadComplete">Download complete</string>
     <string name="downloadFailed">Download failed</string>
     <string name="noNewVersionUrlFound">No new version URL found</string>

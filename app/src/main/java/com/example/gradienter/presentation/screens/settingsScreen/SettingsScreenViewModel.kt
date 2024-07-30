@@ -54,8 +54,10 @@ class SettingsScreenViewModel @Inject constructor(
                 changeColorRepresentation(action.colorRepresentation)
             is SettingsScreenAction.OnGradientElementSizeChange ->
                 changeGradientElementSize(action.gradientElementSize)
-            is SettingsScreenAction.OnVersionClick ->
-                openGitHubLastRelease(action.context)
+            is SettingsScreenAction.OnCurrentVersionClick ->
+                openGitHubCurrentRelease(action.context)
+            is SettingsScreenAction.OnNewVersionInfoClick ->
+                openGitHubLatestRelease(action.context)
             is SettingsScreenAction.OnCheckNewVersionClick ->
                 checkNewVersion()
             is SettingsScreenAction.OnDownloadNewVersionClick ->
@@ -71,11 +73,21 @@ class SettingsScreenViewModel @Inject constructor(
     private fun changeGradientElementSize(gradientElementSize: Int) {
         setGradientElementSizeUseCase(gradientElementSize)
     }
-    private fun openGitHubLastRelease(context: Context) {
+    private fun openGitHubCurrentRelease(context: Context) {
+        openUri(
+            context = context,
+            uriString = Constants.GITHUB_CURRENT_RELEASE_URI
+        )
+    }
+    private fun openGitHubLatestRelease(context: Context) {
+        openUri(
+            context = context,
+            uriString = Constants.GITHUB_LATEST_RELEASE_URI
+        )
+    }
+    private fun openUri(context: Context, uriString: String) {
         val intent = Intent(
-            Intent.ACTION_VIEW, Uri.parse(
-                Constants.PROJECT_REPOSITORY
-            )
+            Intent.ACTION_VIEW, Uri.parse(uriString)
         )
         context.startActivity(intent)
     }

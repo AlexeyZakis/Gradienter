@@ -4,8 +4,6 @@ import androidx.compose.ui.graphics.Color
 import com.example.gradienter.data.ColorRepresentations
 
 object Constants {
-    const val PROJECT_REPOSITORY = "https://github.com/Zakis0/Gradienter/releases/latest"
-
     const val DEFAULT_GRADIENT_ELEMENT_HEIGHT = 18
     val DEFAULT_COLOR_REPRESENTATION = ColorRepresentations.Representation.HEX6
 
@@ -18,4 +16,7 @@ object Constants {
 
     const val GITHUB_OWNER = "Zakis0"
     const val GITHUB_REPOSITORY = "Gradienter"
+
+    const val GITHUB_LATEST_RELEASE_URI = "https://github.com/$GITHUB_OWNER/$GITHUB_REPOSITORY/releases/latest"
+    const val GITHUB_CURRENT_RELEASE_URI = "https://github.com/$GITHUB_OWNER/$GITHUB_REPOSITORY/releases/tag/${BuildConfig.VERSION_NAME}"
 }

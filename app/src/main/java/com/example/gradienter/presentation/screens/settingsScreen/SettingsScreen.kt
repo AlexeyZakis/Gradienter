@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
@@ -102,7 +101,7 @@ fun SettingsScreen(
                 ) {
                     ApplicationVersion(
                         onClick = {
-                            screenAction(SettingsScreenAction.OnVersionClick(context))
+                            screenAction(SettingsScreenAction.OnCurrentVersionClick(context))
                         },
                         modifier = Modifier
                             .fillMaxWidth()
@@ -112,8 +111,13 @@ fun SettingsScreen(
                     innerPadding = PaddingValues(0.dp)
                 ) {
                     CheckNewVersion(
-                        onClick = {
+                        hasNewVersion = screenState.hasNewVersion,
+                        versionName = screenState.newVersionName,
+                        onCheckNewVersionClick = {
                             screenAction(SettingsScreenAction.OnCheckNewVersionClick)
+                        },
+                        onOpenNewVersionInfoClick = {
+                            screenAction(SettingsScreenAction.OnNewVersionInfoClick(context))
                         },
                         modifier = Modifier
                             .fillMaxWidth()

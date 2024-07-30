@@ -15,8 +15,16 @@ import com.example.todoapp.presentation.themes.themeColors
 @Composable
 fun CheckNewVersion(
     modifier: Modifier = Modifier,
-    onClick: () -> Unit,
+    hasNewVersion: Boolean,
+    versionName: String,
+    onCheckNewVersionClick: () -> Unit,
+    onOpenNewVersionInfoClick: () -> Unit,
 ) {
+    val onClick = if (hasNewVersion) {
+        onOpenNewVersionInfoClick
+    } else {
+        onCheckNewVersionClick
+    }
     Box(
         contentAlignment = androidx.compose.ui.Alignment.Center,
         modifier = modifier
@@ -25,15 +33,38 @@ fun CheckNewVersion(
     ) {
         Text(
             color = themeColors.labelPrimary,
-            text = stringResource(id = R.string.checkNewVersion),
+            text = if (hasNewVersion) {
+                "${stringResource(id = R.string.latestVersionInfo)}: " +
+                    versionName
+            } else {
+                stringResource(id = R.string.checkNewVersion)
+            },
         )
     }
 }
 
-@Preview
+@Preview(
+    showBackground = true
+)
 @Composable
-private fun CheckNewVersionPreview() {
+private fun HasNewVersionCheckNewVersionPreview() {
     CheckNewVersion(
-        onClick = {},
+        hasNewVersion = true,
+        versionName = "v1.3.0",
+        onCheckNewVersionClick = {},
+        onOpenNewVersionInfoClick = {},
+    )
+}
+
+@Preview(
+    showBackground = true
+)
+@Composable
+private fun NoNewVersionCheckNewVersionPreview() {
+    CheckNewVersion(
+        hasNewVersion = false,
+        versionName = "v1.3.0",
+        onCheckNewVersionClick = {},
+        onOpenNewVersionInfoClick = {},
     )
 }

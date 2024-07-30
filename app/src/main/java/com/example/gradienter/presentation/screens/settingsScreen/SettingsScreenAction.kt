@@ -10,7 +10,10 @@ sealed class SettingsScreenAction {
     data class OnGradientElementSizeChange(
         val gradientElementSize: Int
     ) : SettingsScreenAction()
-    data class OnVersionClick(
+    data class OnCurrentVersionClick(
+        val context: Context
+    ) : SettingsScreenAction()
+    data class OnNewVersionInfoClick(
         val context: Context
     ) : SettingsScreenAction()
     data object OnCheckNewVersionClick : SettingsScreenAction()

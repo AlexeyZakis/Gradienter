@@ -32,7 +32,7 @@ fun DownloadNewVersion(
             text = if (isDownloading) {
                 stringResource(id = R.string.downloading)
             } else {
-                "${stringResource(id = R.string.downloadNewVersion)}: " +
+                "${stringResource(id = R.string.downloadLatestVersion)}: " +
                         versionName
             },
         )
