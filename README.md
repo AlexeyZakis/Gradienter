@@ -12,8 +12,8 @@
 <h3 align="center">Portrait edit gradient screen</h3>
 <img src="https://github.com/Zakis0/Gradienter/blob/main/img/portraitEditGradient.jpg" alt="Portrait edit gradient screen example">
 
-<h3 align="center">Color representations</h3>
-<img src="https://github.com/Zakis0/Gradienter/blob/main/img/colorRepresentation.jpg" alt="Color representations example">
+<h3 align="center">Settings screen</h3>
+<img src="https://github.com/Zakis0/Gradienter/blob/main/img/settingsScreen.jpg" alt="settings screen example">
 
 <h3 align="center">RGBA color representation</h3>
 <img src="https://github.com/Zakis0/Gradienter/blob/main/img/rgbaColorRepresentation.jpg" alt="RGBA color representation example">
