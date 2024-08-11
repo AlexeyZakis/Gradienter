@@ -18,9 +18,9 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.gradienter.presentation.generalUiElements.ValueSlider
+import com.example.gradienter.presentation.theme.AppTheme
 import com.example.gradienter.presentation.theme.mainTheme.MainTheme
-import com.example.todoapp.presentation.themes.AppTheme
-import com.example.todoapp.presentation.themes.themeColors
+import com.example.gradienter.presentation.theme.themeColors
 
 @Composable
 fun ColorPickerRGB(
@@ -45,11 +45,13 @@ fun ColorPickerRGB(
             sliderBackgroundColor = themeColors.backSecondary,
             onValueChange = {
                 red = it
-                onColorChange(Color(
-                    red = red / 255f,
-                    green = green / 255f,
-                    blue = blue / 255f
-                ))
+                onColorChange(
+                    Color(
+                        red = red / 255f,
+                        green = green / 255f,
+                        blue = blue / 255f
+                    )
+                )
             },
         )
         ValueSlider(
@@ -61,11 +63,13 @@ fun ColorPickerRGB(
             sliderBackgroundColor = themeColors.backSecondary,
             onValueChange = {
                 green = it
-                onColorChange(Color(
-                    red = red / 255f,
-                    green = green / 255f,
-                    blue = blue / 255f
-                ))
+                onColorChange(
+                    Color(
+                        red = red / 255f,
+                        green = green / 255f,
+                        blue = blue / 255f
+                    )
+                )
             },
         )
         ValueSlider(
@@ -77,11 +81,13 @@ fun ColorPickerRGB(
             sliderBackgroundColor = themeColors.backSecondary,
             onValueChange = {
                 blue = it
-                onColorChange(Color(
-                    red = red / 255f,
-                    green = green / 255f,
-                    blue = blue / 255f
-                ))
+                onColorChange(
+                    Color(
+                        red = red / 255f,
+                        green = green / 255f,
+                        blue = blue / 255f
+                    )
+                )
             },
         )
         Box(
@@ -93,11 +99,13 @@ fun ColorPickerRGB(
                 )
                 .fillMaxWidth()
                 .height(100.dp)
-                .background(Color(
-                    red = red / 255f,
-                    green = green / 255f,
-                    blue = blue / 255f
-                ))
+                .background(
+                    Color(
+                        red = red / 255f,
+                        green = green / 255f,
+                        blue = blue / 255f
+                    )
+                )
         )
     }
 }

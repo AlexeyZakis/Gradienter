@@ -28,10 +28,10 @@ import com.example.gradienter.presentation.screens.settingsScreen.components.Gra
 import com.example.gradienter.presentation.screens.settingsScreen.components.GradientListExample
 import com.example.gradienter.presentation.screens.settingsScreen.components.SettingsColorRepresentationSelector
 import com.example.gradienter.presentation.screens.settingsScreen.components.SettingsScreenWrapper
+import com.example.gradienter.presentation.theme.AppTheme
 import com.example.gradienter.presentation.theme.mainTheme.MainTheme
+import com.example.gradienter.presentation.theme.themeColors
 import com.example.gradienter.presentation.utils.extensions.toRId
-import com.example.todoapp.presentation.themes.AppTheme
-import com.example.todoapp.presentation.themes.themeColors
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)

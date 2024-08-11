@@ -8,15 +8,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.example.gradienter.data.ColorRepresentations
 import com.example.gradienter.data.GradientBuilder
 import com.example.gradienter.domain.models.EditGradientItem
 import com.example.gradienter.presentation.screens.gradientListScreen.components.GradientList
 import com.example.gradienter.presentation.screens.gradientListScreen.components.GradientListBottom
+import com.example.gradienter.presentation.theme.AppTheme
 import com.example.gradienter.presentation.theme.mainTheme.MainTheme
-import com.example.todoapp.presentation.themes.AppTheme
-import com.example.todoapp.presentation.themes.themeColors
+import com.example.gradienter.presentation.theme.themeColors
 
 @Composable
 fun GradientListScreen(

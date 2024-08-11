@@ -1,7 +1,7 @@
 package com.example.gradienter.presentation.di
 
 import com.example.gradienter.data.GradientRepositoryImpl
-import com.example.gradienter.data.SettingsRepositoryImpl
+import com.example.gradienter.data.settings.SettingsRepositoryImpl
 import com.example.gradienter.domain.repository.GradientRepository
 import com.example.gradienter.domain.repository.SettingsRepository
 import dagger.Module

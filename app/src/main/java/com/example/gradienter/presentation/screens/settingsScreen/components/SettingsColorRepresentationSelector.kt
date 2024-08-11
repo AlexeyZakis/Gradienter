@@ -1,6 +1,5 @@
 package com.example.gradienter.presentation.screens.settingsScreen.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -12,10 +11,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.gradienter.R
 import com.example.gradienter.data.ColorRepresentations
+import com.example.gradienter.presentation.theme.AppTheme
 import com.example.gradienter.presentation.theme.mainTheme.MainTheme
+import com.example.gradienter.presentation.theme.themeColors
 import com.example.gradienter.presentation.utils.extensions.toRId
-import com.example.todoapp.presentation.themes.AppTheme
-import com.example.todoapp.presentation.themes.themeColors
 
 @Composable
 fun SettingsColorRepresentationSelector(

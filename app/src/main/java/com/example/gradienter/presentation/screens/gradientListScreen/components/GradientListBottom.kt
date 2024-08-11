@@ -12,9 +12,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.gradienter.R
+import com.example.gradienter.presentation.theme.AppTheme
 import com.example.gradienter.presentation.theme.mainTheme.MainTheme
-import com.example.todoapp.presentation.themes.AppTheme
-import com.example.todoapp.presentation.themes.themeColors
+import com.example.gradienter.presentation.theme.themeColors
 
 @Composable
 fun GradientListBottom(

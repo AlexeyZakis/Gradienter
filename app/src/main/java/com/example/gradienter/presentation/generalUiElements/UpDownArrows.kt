@@ -15,7 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.gradienter.R
-import com.example.todoapp.presentation.themes.themeColors
+import com.example.gradienter.presentation.theme.AppTheme
+import com.example.gradienter.presentation.theme.mainTheme.MainTheme
+import com.example.gradienter.presentation.theme.themeColors
 
 @Composable
 fun UpDownArrows(
@@ -62,39 +64,47 @@ fun UpDownArrows(
 @Preview(showBackground = true)
 @Composable
 private fun UpDownArrowsPreview() {
-    UpDownArrows(
-        onUpArrowClick = {},
-        onDownArrowClick = {},
-    )
+    AppTheme(theme = MainTheme) {
+        UpDownArrows(
+            onUpArrowClick = {},
+            onDownArrowClick = {},
+        )
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun DownDisableUpDownArrowsPreview() {
-    UpDownArrows(
-        downArrowEnabled = false,
-        onUpArrowClick = {},
-        onDownArrowClick = {},
-    )
+    AppTheme(theme = MainTheme) {
+        UpDownArrows(
+            downArrowEnabled = false,
+            onUpArrowClick = {},
+            onDownArrowClick = {},
+        )
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun UpDisableUpDownArrowsPreview() {
-    UpDownArrows(
-        upArrowEnabled = false,
-        onUpArrowClick = {},
-        onDownArrowClick = {},
-    )
+    AppTheme(theme = MainTheme) {
+        UpDownArrows(
+            upArrowEnabled = false,
+            onUpArrowClick = {},
+            onDownArrowClick = {},
+        )
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 private fun DisableUpDownArrowsPreview() {
-    UpDownArrows(
-        upArrowEnabled = false,
-        downArrowEnabled = false,
-        onUpArrowClick = {},
-        onDownArrowClick = {},
-    )
+    AppTheme(theme = MainTheme) {
+        UpDownArrows(
+            upArrowEnabled = false,
+            downArrowEnabled = false,
+            onUpArrowClick = {},
+            onDownArrowClick = {},
+        )
+    }
 }

@@ -9,10 +9,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.gradienter.Constants
 import com.example.gradienter.R
 import com.example.gradienter.data.ColorRepresentations
-import com.example.gradienter.domain.usecase.settingsRepository.GetColorRepresentationUseCase
-import com.example.gradienter.domain.usecase.settingsRepository.GetGradientElementSizeUseCase
-import com.example.gradienter.domain.usecase.settingsRepository.SetColorRepresentationUseCase
-import com.example.gradienter.domain.usecase.settingsRepository.SetGradientElementSizeUseCase
+import com.example.gradienter.domain.usecase.settingsRepository.GetSettingsUseCase
+import com.example.gradienter.domain.usecase.settingsRepository.SetSettingsUseCase
 import com.example.gradienter.presentation.utils.AppUpdater
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -27,20 +25,18 @@ import javax.inject.Inject
 @HiltViewModel
 class SettingsScreenViewModel @Inject constructor(
     @ApplicationContext private val applicationContext: Context,
-    private val getColorRepresentationUseCase: GetColorRepresentationUseCase,
-    private val setColorRepresentationUseCase: SetColorRepresentationUseCase,
-    private val getGradientElementSizeUseCase: GetGradientElementSizeUseCase,
-    private val setGradientElementSizeUseCase: SetGradientElementSizeUseCase,
+    private val getSettingsUseCase: GetSettingsUseCase,
+    private val setSettingsUseCase: SetSettingsUseCase,
 ) : ViewModel() {
+
     private val _screenState = MutableStateFlow(SettingsScreenState())
     val screenState = combine(
         _screenState,
-        getGradientElementSizeUseCase(),
-        getColorRepresentationUseCase()
-    ) { state, gradientElementSize, colorRepresentation ->
+        getSettingsUseCase(),
+    ) { state, settings ->
         state.copy(
-            gradientElementSize = gradientElementSize,
-            colorRepresentation = colorRepresentation
+            gradientElementSize = settings.gradientElementSize,
+            colorRepresentation = settings.colorRepresentation
         )
     }.stateIn(
         viewModelScope,
@@ -68,10 +64,14 @@ class SettingsScreenViewModel @Inject constructor(
     private fun changeColorRepresentation(
         colorRepresentation: ColorRepresentations.Representation
     ) {
-        setColorRepresentationUseCase(colorRepresentation)
+        setSettingsUseCase(getSettingsUseCase().value.copy(
+            colorRepresentation = colorRepresentation
+        ))
     }
     private fun changeGradientElementSize(gradientElementSize: Int) {
-        setGradientElementSizeUseCase(gradientElementSize)
+        setSettingsUseCase(getSettingsUseCase().value.copy(
+            gradientElementSize = gradientElementSize
+        ))
     }
     private fun openGitHubCurrentRelease(context: Context) {
         openUri(

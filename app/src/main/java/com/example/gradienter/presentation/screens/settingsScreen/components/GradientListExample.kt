@@ -11,6 +11,8 @@ import com.example.gradienter.data.ColorRepresentations
 import com.example.gradienter.data.GradientBuilder
 import com.example.gradienter.domain.models.EditGradientItem
 import com.example.gradienter.presentation.screens.gradientListScreen.components.GradientList
+import com.example.gradienter.presentation.theme.AppTheme
+import com.example.gradienter.presentation.theme.mainTheme.MainTheme
 
 @Composable
 fun GradientListExample(
@@ -38,8 +40,10 @@ fun GradientListExample(
 @Preview
 @Composable
 private fun GradientListExamplePreview() {
-    GradientListExample(
-        gradientElementHeightDp = 18,
-        colorRepresentation = ColorRepresentations.Representation.HEX6,
-    )
+    AppTheme(theme = MainTheme) {
+        GradientListExample(
+            gradientElementHeightDp = 18,
+            colorRepresentation = ColorRepresentations.Representation.HEX6,
+        )
+    }
 }

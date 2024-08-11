@@ -10,9 +10,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.gradienter.R
 import com.example.gradienter.Constants
 import com.example.gradienter.presentation.generalUiElements.ValueSlider
+import com.example.gradienter.presentation.theme.AppTheme
 import com.example.gradienter.presentation.theme.mainTheme.MainTheme
-import com.example.todoapp.presentation.themes.AppTheme
-import com.example.todoapp.presentation.themes.themeColors
+import com.example.gradienter.presentation.theme.themeColors
 
 @Composable
 fun GradientElementSizeSelector(

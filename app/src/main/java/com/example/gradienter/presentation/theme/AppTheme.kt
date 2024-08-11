@@ -1,4 +1,4 @@
-package com.example.todoapp.presentation.themes
+package com.example.gradienter.presentation.theme
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -16,9 +16,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.gradienter.presentation.theme.ColorNames
-import com.example.gradienter.presentation.theme.LocalColorNames
-import com.example.gradienter.presentation.theme.Theme
 import com.example.gradienter.presentation.theme.mainTheme.MainTheme
 
 @Composable

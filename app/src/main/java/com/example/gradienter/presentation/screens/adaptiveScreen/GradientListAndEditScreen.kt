@@ -11,17 +11,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import com.example.gradienter.data.GradientBuilder
 import com.example.gradienter.data.GradientRepositoryImpl
-import com.example.gradienter.data.SettingsRepositoryImpl
+import com.example.gradienter.data.settings.SettingsRepositoryImpl
 import com.example.gradienter.domain.models.EditGradientItem
 import com.example.gradienter.domain.usecase.gradientRepository.AddEditGradientItemUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.EditEditGradientItemUseCase
-import com.example.gradienter.domain.usecase.settingsRepository.GetColorRepresentationUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.GetEditGradientItemUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.GetEditGradientItemsListUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.MoveElementDownUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.MoveElementUpUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.RemoveEditGradientItemUseCase
-import com.example.gradienter.domain.usecase.settingsRepository.GetGradientElementSizeUseCase
+import com.example.gradienter.domain.usecase.settingsRepository.GetSettingsUseCase
 import com.example.gradienter.presentation.navigation.routes.SettingsScreenRoute
 import com.example.gradienter.presentation.screens.editGradientScreen.EditGradientScreen
 import com.example.gradienter.presentation.screens.editGradientScreen.EditGradientScreenState
@@ -29,8 +28,8 @@ import com.example.gradienter.presentation.screens.editGradientScreen.EditGradie
 import com.example.gradienter.presentation.screens.gradientListScreen.GradientListScreen
 import com.example.gradienter.presentation.screens.gradientListScreen.GradientScreenState
 import com.example.gradienter.presentation.screens.gradientListScreen.GradientScreenViewModel
+import com.example.gradienter.presentation.theme.AppTheme
 import com.example.gradienter.presentation.theme.mainTheme.MainTheme
-import com.example.todoapp.presentation.themes.AppTheme
 
 @Composable
 fun GradientListAndEditScreen(
@@ -87,10 +86,7 @@ private fun LandscapeGradientListAndEditScreenPreview() {
                 getEditGradientItemsListUseCase = GetEditGradientItemsListUseCase(
                     gradientRepository = GradientRepositoryImpl()
                 ),
-                getColorRepresentationUseCase = GetColorRepresentationUseCase(
-                    settingsRepository = SettingsRepositoryImpl()
-                ),
-                getGradientElementSizeUseCase = GetGradientElementSizeUseCase(
+                getSettingsUseCase = GetSettingsUseCase(
                     settingsRepository = SettingsRepositoryImpl()
                 )
             ),

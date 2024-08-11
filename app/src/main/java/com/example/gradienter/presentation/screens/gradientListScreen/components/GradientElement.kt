@@ -21,8 +21,8 @@ import androidx.compose.ui.unit.dp
 import com.example.gradienter.Constants
 import com.example.gradienter.data.BrightnessCalculator
 import com.example.gradienter.data.ColorRepresentations
+import com.example.gradienter.presentation.theme.AppTheme
 import com.example.gradienter.presentation.theme.mainTheme.MainTheme
-import com.example.todoapp.presentation.themes.AppTheme
 
 @Composable
 fun GradientElement(

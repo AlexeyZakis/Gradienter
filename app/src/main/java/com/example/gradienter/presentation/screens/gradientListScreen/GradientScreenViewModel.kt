@@ -3,9 +3,9 @@ package com.example.gradienter.presentation.screens.gradientListScreen
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.gradienter.data.GradientBuilder
-import com.example.gradienter.domain.usecase.settingsRepository.GetColorRepresentationUseCase
 import com.example.gradienter.domain.usecase.gradientRepository.GetEditGradientItemsListUseCase
-import com.example.gradienter.domain.usecase.settingsRepository.GetGradientElementSizeUseCase
+import com.example.gradienter.domain.usecase.settingsRepository.GetSettingsUseCase
+import com.example.gradienter.domain.usecase.settingsRepository.SetSettingsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -16,21 +16,18 @@ import javax.inject.Inject
 @HiltViewModel
 class GradientScreenViewModel @Inject constructor(
     private val getEditGradientItemsListUseCase: GetEditGradientItemsListUseCase,
-    private val getColorRepresentationUseCase: GetColorRepresentationUseCase,
-    private val getGradientElementSizeUseCase: GetGradientElementSizeUseCase,
+    private val getSettingsUseCase: GetSettingsUseCase,
 ) : ViewModel() {
     private val _screenState = MutableStateFlow(GradientScreenState())
-
     val screenState = combine(
         _screenState,
         getEditGradientItemsListUseCase(),
-        getColorRepresentationUseCase(),
-        getGradientElementSizeUseCase(),
-    ) { state, editGradientItemsList, colorRepresentation, gradientElementSize ->
+        getSettingsUseCase(),
+    ) { state, editGradientItemsList, settings ->
         state.copy(
             gradientItems = GradientBuilder.build(editGradientItemsList),
-            colorRepresentation = colorRepresentation,
-            gradientElementSize = gradientElementSize,
+            colorRepresentation = settings.colorRepresentation,
+            gradientElementSize = settings.gradientElementSize,
         )
     }.stateIn(
         viewModelScope,
