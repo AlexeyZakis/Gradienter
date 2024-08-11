@@ -1,4 +1,4 @@
-package com.example.gradienter.presentation.utils
+package com.example.gradienter.data
 
 import android.content.Context
 import android.content.Intent

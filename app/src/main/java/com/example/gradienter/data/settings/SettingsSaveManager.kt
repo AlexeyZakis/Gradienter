@@ -1,4 +1,4 @@
-package com.example.gradienter.presentation.utils
+package com.example.gradienter.data.settings
 
 import android.content.Context
 import com.example.gradienter.domain.repository.SettingsRepository

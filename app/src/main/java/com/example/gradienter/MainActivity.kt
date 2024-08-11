@@ -3,7 +3,7 @@ package com.example.gradienter
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.example.gradienter.presentation.utils.SettingsSaveManager
+import com.example.gradienter.data.settings.SettingsSaveManager
 import com.example.gradienter.presentation.screens.adaptiveScreen.AdaptiveScreen
 import com.example.gradienter.presentation.theme.AppTheme
 import com.example.gradienter.presentation.theme.mainTheme.MainTheme

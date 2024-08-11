@@ -11,7 +11,7 @@ import com.example.gradienter.R
 import com.example.gradienter.data.ColorRepresentations
 import com.example.gradienter.domain.usecase.settingsRepository.GetSettingsUseCase
 import com.example.gradienter.domain.usecase.settingsRepository.SetSettingsUseCase
-import com.example.gradienter.presentation.utils.AppUpdater
+import com.example.gradienter.data.AppUpdater
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
